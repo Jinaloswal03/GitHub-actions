@@ -7,6 +7,19 @@ jobs:
       - name: Get Code
         uses: actions/checkout@v4
 
+      - name: Install Node 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install dependencies
         run: npm ci
 
@@ -24,6 +37,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
 
       - name: Install dependencies
         run: npm ci
