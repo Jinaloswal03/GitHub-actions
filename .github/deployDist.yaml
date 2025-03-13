@@ -1,8 +1,11 @@
-name: Greeeting
+name: DeployDist
 on: push
 jobs:
-  greet:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: "greet user"
-        run: echo "Hello world!"
+        run: |
+          echo "cloning repo..."
+          echo "${{toJson(github)}}"
+          git clone https://github.com/${{github.repository}}.git
