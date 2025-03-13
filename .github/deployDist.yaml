@@ -1,11 +1,11 @@
 name: DeployDist
-on: push
+on: [push, workflow_dispatch]
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: "greet user"
+      - name: Get Code
         run: |
-          echo "cloning repo..."
-          echo "${{toJson(github)}}"
+          echo "cloning repo.."
+          echo "${{ toJson(github) }}"
           git clone https://github.com/${{github.repository}}.git
