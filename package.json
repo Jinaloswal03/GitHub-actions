@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Jinaloswal03.github.io/GitHub-actions",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
